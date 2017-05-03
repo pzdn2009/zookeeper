@@ -19,7 +19,7 @@
 
 namespace ZooKeeperNet
 {
-    using log4net;
+    using Common.Logging;
 
     public class SafeThreadStart
     {

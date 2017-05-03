@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Text;
     using System.Threading;
-    using log4net;
+    using Common.Logging;
     using Org.Apache.Zookeeper.Data;
  
     public abstract class ProtocolSupport : IDisposable

@@ -25,7 +25,7 @@ namespace ZooKeeperNet
     using System.Net.Sockets;
     using System.Text;
     using System.Threading;
-    using log4net;
+    using Common.Logging;
     using Org.Apache.Jute;
     using Org.Apache.Zookeeper.Proto;
 

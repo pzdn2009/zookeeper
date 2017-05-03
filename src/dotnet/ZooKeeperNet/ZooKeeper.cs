@@ -23,7 +23,7 @@
     using System.Diagnostics;
     using System.IO;
     using System.Runtime.CompilerServices;
-    using log4net;
+    using Common.Logging;
     using Org.Apache.Zookeeper.Data;
     using Org.Apache.Zookeeper.Proto;
     using System.Threading;

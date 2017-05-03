@@ -1,7 +1,7 @@
 ﻿namespace ZooKeeperNet.Recipes
 {
     using System;
-    using log4net;
+    using Common.Logging;
 
     public class ZNodeName : IComparable<ZNodeName>, IEquatable<ZNodeName>
     {

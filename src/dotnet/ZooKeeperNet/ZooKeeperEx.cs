@@ -16,7 +16,7 @@
  *
  */
 ﻿using System.Collections.Generic;
-﻿using log4net;
+﻿using Common.Logging;
 
 namespace ZooKeeperNet
 {

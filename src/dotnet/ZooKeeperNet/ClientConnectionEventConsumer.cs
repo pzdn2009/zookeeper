@@ -20,7 +20,7 @@
     using System;
     using System.Collections.Concurrent;
     using System.Threading;
-    using log4net;
+    using Common.Logging;
     using System.Text;
     using System.Collections.Generic;
 

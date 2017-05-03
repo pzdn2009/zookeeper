@@ -19,7 +19,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using log4net;
+    using Common.Logging;
     using System.Text;
     using System.Collections.Concurrent;
     using System.Threading;

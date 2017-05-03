@@ -20,7 +20,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using log4net;
+    using Common.Logging;
     using Org.Apache.Jute;
     using Org.Apache.Zookeeper.Data;
     using System.Text;
