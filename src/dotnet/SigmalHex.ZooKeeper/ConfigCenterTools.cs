@@ -33,16 +33,19 @@ namespace SigmalHex.Zookeeper
                         zkCache.SetValue(path, value);
                         Zookeeper.Exists(path, this);
                         LOG.Debug(" >>NodeCreated:" + value);
+                        System.Console.WriteLine(" >>NodeCreated:" + value);
                         break;
                     case EventType.NodeDeleted:
                         Zookeeper.Exists(path, this);
                         LOG.Debug(" >>NodeDeleted:" + value);
+                        System.Console.WriteLine(" >>NodeDeleted:" + value);
                         break;
                     case EventType.NodeDataChanged:
                         value = Zookeeper.GetData(path, this, null).GetString();
                         zkCache.SetValue(path, value);
                         Zookeeper.Exists(path, this);
                         LOG.Debug(" >>NodeDataChanged:" + value);
+                        System.Console.WriteLine(" >>NodeDataChanged:" + value);
                         break;
                     case EventType.NodeChildrenChanged:
                         break;
@@ -61,16 +64,17 @@ namespace SigmalHex.Zookeeper
         {
         }
 
-        public void Watch(params string[] paths)
+        public string Watch(string path)
         {
-            foreach (var path in paths)
+            var stat = Zookeeper.Exists(path, new ConfigCenterWatcher(Zookeeper, ZkCache));
+            if (stat != null)
             {
-                var stat = Zookeeper.Exists(path, new ConfigCenterWatcher(Zookeeper, ZkCache));
-                if (stat != null)
-                {
-                    ZkCache.SetValue(path, Zookeeper.GetData(path, false, null).GetString());
-                }
+                var data = Zookeeper.GetData(path, false, null).GetString();
+                ZkCache.SetValue(path, data);
+                return data;
             }
+
+            return null;
         }
 
         public void SetNode(string path, string value)
@@ -105,6 +109,23 @@ namespace SigmalHex.Zookeeper
             {
                 SetNode(config.Key, config.Value);
             }
+        }
+
+        public string GetConfig(string path, bool local = true)
+        {
+            if (local)
+            {
+                return ZkCache.GetValue(path);
+            }
+            else
+            {
+                return Watch(path);
+            }
+        }
+
+        public string GetConfig(PathRoot path, bool local = true)
+        {
+            return GetConfig(path.ToPath(), local);
         }
     }
 }

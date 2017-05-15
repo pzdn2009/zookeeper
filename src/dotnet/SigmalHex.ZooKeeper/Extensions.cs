@@ -6,7 +6,7 @@ namespace SigmalHex.Zookeeper
     {
         public static string GetString(this byte[] data)
         {
-            return GetString(data, Encoding.ASCII);
+            return GetString(data, Encoding.UTF8);
         }
 
         public static string GetString(this byte[] data, Encoding encoding)

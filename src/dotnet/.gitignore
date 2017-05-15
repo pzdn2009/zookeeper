@@ -18,5 +18,7 @@ SigmalHex.Zookeeper/bin
 SigmalHex.Zookeeper/obj
 ZooKeeper.Profiled/obj
 ZooKeeper.Profiled/bin
+bin/
+obj/
 *.vsp
 *.7z
